@@ -1167,6 +1167,14 @@ public class StripeTest {
 		testMetadata(Customer.create(defaultCustomerParams));
 	}
 
+  @Test
+  public void testInvoiceItemMetadata() throws StripeException {
+    Customer customer = Customer.create(defaultCustomerParams);
+    InvoiceItem invoiceItem = createDefaultInvoiceItem(customer);
+
+    testMetadata(invoiceItem);
+  }
+
 	@Test
 	public void testTransferMetadata() throws StripeException {
 		Recipient recipient = Recipient.create(defaultRecipientParams);
